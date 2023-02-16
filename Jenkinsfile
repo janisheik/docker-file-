@@ -6,7 +6,7 @@ pipeline {
        stage ('git clone') {
           steps {
       echo "code is building"
-       git 'https://github.com/janisheik/error.git'
+       git 'https://github.com/janisheik/docker-file-.git'
           }
       }
         stage('build docker image') {
