@@ -12,11 +12,11 @@ pipeline {
         stage('build docker image') {
           steps {
               echo ("build docker image")
-              sh sudo'aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/m8a8q5v2'
-              sh sudo'docker build -t tomcat .'
-              sh sudo'docker tag tomcat:latest public.ecr.aws/m8a8q5v2/tomcat:latest'
-              sh sudo'docker push public.ecr.aws/m8a8q5v2/tomcat:latest'
-              sh sudo'chmod 666 /var/run/docker.sock'
+              sh 'sudo aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/m8a8q5v2'
+              sh 'sudo docker build -t tomcat .'
+              sh 'sudo docker tag tomcat:latest public.ecr.aws/m8a8q5v2/tomcat:latest'
+              sh 'sudo docker push public.ecr.aws/m8a8q5v2/tomcat:latest'
+              sh 'sudo chmod 666 /var/run/docker.sock'
          
           }
        }       
