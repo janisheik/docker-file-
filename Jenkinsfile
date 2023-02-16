@@ -13,8 +13,8 @@ pipeline {
         }
         stage('Build and push to ECR') {
             steps {
-                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-credentials']]) {
-                    sh "docker build -t myapp ."
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'AKIA46HK5A52FYS7P7GI']]) {
+                    sh "docker build -t tomcat ."
                     sh "aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/m8a8q5v2"
                     sh "docker tag tomcat:latest public.ecr.aws/m8a8q5v2/tomcat:latest"
                     sh "docker push public.ecr.aws/m8a8q5v2/tomcat:latest"
